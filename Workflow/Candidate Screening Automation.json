@@ -54,9 +54,7 @@
         -544,
         -16
       ],
-      "id": "173e3d60-3911-4eb8-b58c-e16fae3c5d95",
-      "name": "Recebendo candidatura",
-      "webhookId": "fbd9fceb-04c6-47a1-93dc-3c4e7db505a9"
+      "name": "Recebendo candidatura"
     },
     {
       "parameters": {
@@ -69,7 +67,6 @@
           },
           "conditions": [
             {
-              "id": "ca073811-c111-4a2f-9c48-89df79c36d9a",
               "leftValue": "={{ $json['Pretensão salarial (apenas números):'] }}",
               "rightValue": 6000,
               "operator": {
@@ -88,7 +85,6 @@
         -304,
         -16
       ],
-      "id": "6f2e2805-e0f8-4add-8938-966762481f45",
       "name": "Verificando salário"
     },
     {
@@ -107,16 +103,8 @@
         -32,
         -176
       ],
-      "id": "9c79a211-b89d-48d2-a9d1-9686f2baf1bc",
       "name": "E-mail salário alto",
-      "webhookId": "1eca8238-633f-43b8-ba0a-a7b34320365e",
-      "alwaysOutputData": false,
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "dXfn7zTSQnrnudtZ",
-          "name": "Gmail account"
-        }
-      }
+      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -137,8 +125,7 @@
                     "operator": {
                       "type": "string",
                       "operation": "equals"
-                    },
-                    "id": "709f21cc-f894-48e6-bf71-97acecd68149"
+                    }
                   }
                 ],
                 "combinator": "and"
@@ -156,7 +143,6 @@
                 },
                 "conditions": [
                   {
-                    "id": "3fc1dc3a-a048-479b-8097-35b86aa97c84",
                     "leftValue": "={{ $('Verificando salário').item.json['Cargo/Função:'] }}",
                     "rightValue": "Social Media",
                     "operator": {
@@ -181,7 +167,6 @@
                 },
                 "conditions": [
                   {
-                    "id": "517087f7-4667-4f8c-8eeb-26458158c673",
                     "leftValue": "={{ $('Verificando salário').item.json['Cargo/Função:'] }}",
                     "rightValue": "Analista de Automação",
                     "operator": {
@@ -206,7 +191,6 @@
                 },
                 "conditions": [
                   {
-                    "id": "58685c17-0a9d-46d3-9e15-5e5e5786413a",
                     "leftValue": "={{ $('Verificando salário').item.json['Cargo/Função:'] }}",
                     "rightValue": "QA",
                     "operator": {
@@ -230,7 +214,6 @@
         208,
         48
       ],
-      "id": "b5c893a6-dc3a-4f26-9baf-983c3476956e",
       "name": "Switch"
     },
     {
@@ -262,7 +245,6 @@
           "matchingColumns": [],
           "schema": [
             {
-              "id": "Nome",
               "displayName": "Nome",
               "required": false,
               "defaultMatch": false,
@@ -271,7 +253,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Email",
               "displayName": "Email",
               "required": false,
               "defaultMatch": false,
@@ -280,7 +261,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Cargo",
               "displayName": "Cargo",
               "required": false,
               "defaultMatch": false,
@@ -289,7 +269,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Salário",
               "displayName": "Salário",
               "required": false,
               "defaultMatch": false,
@@ -298,7 +277,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "DataHora",
               "displayName": "DataHora",
               "required": false,
               "defaultMatch": false,
@@ -307,7 +285,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Entrevista",
               "displayName": "Entrevista",
               "required": false,
               "defaultMatch": false,
@@ -327,14 +304,7 @@
         -32,
         48
       ],
-      "id": "cd8411e6-ab18-4306-82df-513661b244bc",
-      "name": "Adicionar linha de candidato",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "OlCZlkXysiNgR4zY",
-          "name": "Google Sheets account"
-        }
-      }
+      "name": "Adicionar linha de candidato"
     },
     {
       "parameters": {
@@ -352,16 +322,8 @@
         528,
         144
       ],
-      "id": "be6dfaed-d4f2-4673-a074-36eba505f371",
       "name": "E-mail sem vaga",
-      "webhookId": "1eca8238-633f-43b8-ba0a-a7b34320365e",
-      "alwaysOutputData": false,
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "dXfn7zTSQnrnudtZ",
-          "name": "Gmail account"
-        }
-      }
+      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -379,20 +341,12 @@
         528,
         -48
       ],
-      "id": "66061f71-5a91-488f-96b7-6d29ddea50ba",
       "name": "E-mail Analista Dados",
-      "webhookId": "1eca8238-633f-43b8-ba0a-a7b34320365e",
-      "alwaysOutputData": false,
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "dXfn7zTSQnrnudtZ",
-          "name": "Gmail account"
-        }
-      }
+      "alwaysOutputData": false
     },
     {
       "parameters": {
-        "sendTo": "enzo.lopes816@gmail.com",
+        "sendTo": "example@gmail.com",
         "subject": "=Novo candidato - {{ $('Verificando salário').item.json['Cargo/Função:'] }}",
         "emailType": "text",
         "message": "=Olá,\n\nUm novo candidato foi adicionado a planilha.\n\nPor favor, analise o candidato e dê o feedback para prosseguir ou não para a entrevista.",
@@ -406,16 +360,8 @@
         784,
         -48
       ],
-      "id": "67976d06-f646-4fe9-ba99-7bb4c2fd7c9c",
       "name": "E-mail gestor vaga",
-      "webhookId": "1eca8238-633f-43b8-ba0a-a7b34320365e",
-      "alwaysOutputData": false,
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "dXfn7zTSQnrnudtZ",
-          "name": "Gmail account"
-        }
-      }
+      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -428,7 +374,6 @@
           },
           "conditions": [
             {
-              "id": "3dbddede-9bc7-4a79-ac13-cd4e5918ed5f",
               "leftValue": "={{ $('Verificando salário').item.json['Pretensão salarial (apenas números):'] }}",
               "rightValue": 4500,
               "operator": {
@@ -447,16 +392,15 @@
         784,
         -256
       ],
-      "id": "20d838c1-b647-4064-81bc-05bd1906f1fa",
       "name": "Filter"
     },
     {
       "parameters": {
         "calendar": {
           "__rl": true,
-          "value": "enzo.lopes816@gmail.com",
+          "value": "example@gmail.com",
           "mode": "list",
-          "cachedResultName": "enzo.lopes816@gmail.com"
+          "cachedResultName": "example@gmail.com"
         },
         "start": "={{ $now.plus(1, 'day') }}",
         "end": "={{ $now.plus(1, 'day').plus(1, 'hour') }}",
@@ -473,14 +417,7 @@
         992,
         -256
       ],
-      "id": "e6bd072a-1532-40f6-87a4-adc552f5e77b",
-      "name": "Agendar entrevista",
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "wlfwDTGRDMURyPgw",
-          "name": "Google Calendar account"
-        }
-      }
+      "name": "Agendar entrevista"
     },
     {
       "parameters": {
@@ -510,7 +447,6 @@
           ],
           "schema": [
             {
-              "id": "Nome",
               "displayName": "Nome",
               "required": false,
               "defaultMatch": false,
@@ -520,7 +456,6 @@
               "removed": false
             },
             {
-              "id": "Email",
               "displayName": "Email",
               "required": false,
               "defaultMatch": false,
@@ -529,7 +464,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Cargo",
               "displayName": "Cargo",
               "required": false,
               "defaultMatch": false,
@@ -538,7 +472,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Salário",
               "displayName": "Salário",
               "required": false,
               "defaultMatch": false,
@@ -547,7 +480,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "DataHora",
               "displayName": "DataHora",
               "required": false,
               "defaultMatch": false,
@@ -556,7 +488,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Entrevista",
               "displayName": "Entrevista",
               "required": false,
               "defaultMatch": false,
@@ -577,18 +508,11 @@
         1200,
         -256
       ],
-      "id": "4ab9016f-e17a-4cb9-8ede-94ab1e8eee58",
-      "name": "Colocar link entrevista",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "OlCZlkXysiNgR4zY",
-          "name": "Google Sheets account"
-        }
-      }
+      "name": "Colocar link entrevista"
     },
     {
       "parameters": {
-        "sendTo": "enzo.lopes816@gmail.com",
+        "sendTo": "example@gmail.com",
         "subject": "=Entrevista Analista de Dados x {{ $('Verificando salário').item.json['Nome completo:'] }}",
         "emailType": "text",
         "message": "=Olá,\n\nA entrevista está agendada para {{ \n  new Date($('Agendar entrevista').item.json.start.dateTime).toLocaleDateString('pt-BR')\n  + ' às ' +\n  new Date($('Agendar entrevista').item.json.start.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n}}\n\nO link do agendamento é: {{ $('Agendar entrevista').item.json.htmlLink }}",
@@ -603,16 +527,8 @@
         1440,
         -64
       ],
-      "id": "2183d278-a50f-4f70-8dd1-789a6f03a5cf",
       "name": "E-mail gestor vaga1",
-      "webhookId": "1eca8238-633f-43b8-ba0a-a7b34320365e",
-      "alwaysOutputData": false,
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "dXfn7zTSQnrnudtZ",
-          "name": "Gmail account"
-        }
-      }
+      "alwaysOutputData": false
     }
   ],
   "pinData": {},
@@ -745,17 +661,13 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "706048ad-5241-4491-a181-d32b8a50b928",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "129499f5595e9f6b401227bc645d8301079e656d288c1ac35715b166b9f7cd98"
+    "templateCredsSetupCompleted": true
   },
-  "id": "5tN02XxRal85n889",
   "tags": [
     {
       "updatedAt": "2026-02-16T12:26:20.703Z",
       "createdAt": "2026-02-16T12:26:20.703Z",
-      "id": "ToVwRT0QzES5zm6U",
       "name": "Entrevistas"
     }
   ]
